@@ -20,3 +20,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::prefix('mypage')
+    // コントローラの名前空間の接頭辞
+    ->namespace('Mypage')
+    ->middleware('auth')
+    ->group(function(){
+        Route::get('edit-profile','ProfileController@showProfileEditForm')->name('mypage.edit-profile');
+    });
