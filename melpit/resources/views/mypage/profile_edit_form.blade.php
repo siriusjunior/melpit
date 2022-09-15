@@ -24,13 +24,17 @@
                 <form method="POST" action="{{ route('mypage.edit-profile') }}" class="p-5" enctype="multipart/form-data">
                     @csrf
 
-                    {{-- アバター画像 --}}
-                    <span class="avatar-form image-picker">
-                        <input type="file" name="avatar" class="d-none" accept="image/png,image/jpeg,image/gif" id="avatar" />
-                        <label for="avatar" class="d-inline-block">
+                {{-- アバター画像 --}}
+                <span class="avatar-form image-picker">
+                    <input type="file" name="avatar" class="d-none" accept="image/png,image/jpeg,image/gif" id="avatar" />
+                    <label for="avatar" class="d-inline-block">
+                        @if (!empty($user->avatar_file_name))
+                            <img src="/storage/avatars/{{$user->avatar_file_name}}" class="rounded-circle" style="object-fit: cover; width: 200px; height: 200px;">
+                        @else
                             <img src="/images/avatar-default.svg" class="rounded-circle" style="object-fit: cover; width: 200px; height: 200px;">
-                        </label>
-                    </span>
+                        @endif
+                    </label>
+                </span>
 
                     {{-- ニックネーム --}}
                     <div class="form-group mt-3">
