@@ -21,6 +21,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::middleware('auth')
+    ->group(function(){
+        Route::get('sell','SellController@showSellForm')->name('sell');
+    });
+
 Route::prefix('mypage')
     // コントローラの名前空間の接頭辞
     ->namespace('Mypage')
