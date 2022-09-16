@@ -21,5 +21,11 @@
         "sass": "^1.15.2",
         "sass-loader": "^8.0.0",
         "vue-template-compiler": "^2.7.10"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^1.2.32",
+        "@fortawesome/free-brands-svg-icons": "^5.15.1",
+        "@fortawesome/free-regular-svg-icons": "^5.15.1",
+        "@fortawesome/free-solid-svg-icons": "^5.15.1"
     }
 }

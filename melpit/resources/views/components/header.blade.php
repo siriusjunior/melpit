@@ -26,7 +26,22 @@
                             @endif
                             {{ $user->name }} <span class="caret"></span>
                         </a>
-                    </li>
+
+                        {{-- ドロップダウンメニュー --}}
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('mypage.edit-profile') }}">
+                                <i class="far fa-address-card text-left" style="width: 30px"></i>プロフィール編集
+                            </a>
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                    document.getElementById('logout-form').submit();">
+                                <i class="fas fa-sign-out-alt text-left" style="width: 30px"></i>ログアウト
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                </li>
                 @endguest
             </ul>
         </div>
