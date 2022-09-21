@@ -24,6 +24,7 @@ class SellRequest extends FormRequest
     public function rules()
     {
         return [
+            'item-image' => ['required', 'file', 'image'],
             'name' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string', 'max:2000'],
             'category' => ['required', 'integer'],
@@ -35,6 +36,7 @@ class SellRequest extends FormRequest
     public function attributes()
     {
         return[
+            'item-image' => '商品画像',
             'name' => '商品名',
             'description' => '商品の説明',
             'category' => 'カテゴリー',

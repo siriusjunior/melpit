@@ -48,6 +48,7 @@ class CreateAppTables extends Migration
             $table->unsignedBigInteger('item_condition_id');
 
             $table->string('name');
+            $table->string('image_file_name');
             $table->text('description');
             $table->unsignedInteger('price');
             $table->string('state');
