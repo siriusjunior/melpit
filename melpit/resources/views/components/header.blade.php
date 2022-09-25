@@ -1,5 +1,14 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
     <div class="container">
+        <div class="row">
+            <div class="col-8 offset-2">
+                @if (session('status'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
+                @endif
+            </div>
+        </div>
         <a class="navbar-brand" href="{{ url('/') }}">
             <img src="/images/logo-1.png" style="height: 39px;" alt="Melpit">
         </a>
