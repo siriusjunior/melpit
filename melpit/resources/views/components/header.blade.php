@@ -3,9 +3,37 @@
         <a class="navbar-brand" href="{{ url('/') }}">
             <img src="/images/logo-1.png" style="height: 39px;" alt="Melpit">
         </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
+                <!-- ドロップダウンカテゴリー・名前検索 -->
+                <form class="form-inline" method="GET" action="{{ route('top') }}">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <select class="custom-select" name="category">
+                                <option value="">全て</option>
+                                @foreach ($categories as $category)
+                                    <option value="primary:{{$category->id}}" class="font-weight-bold">{{$category->name}}</option>
+                                    @foreach ($category->secondaryCategories as $secondary)
+                                        <option value="secondary:{{$secondary->id}}">{{$secondary->name}}</option>
+                                    @endforeach
+                                @endforeach
+                            </select>
+                        </div>
+                        <!-- ./input-group-prepend -->
+                        <input type="text" name="keyword" class="form-control" aria-label="Text input with dropdown button" placeholder="キーワード検索">
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-outline-dark">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                        <!-- ./input-group-append -->
+                    </div>
+                    <!-- ./input-group -->
+                </form>
                 @guest
                     {{-- 非ログイン --}}
                     <li class="nav-item">
