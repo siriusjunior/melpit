@@ -1,14 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
     <div class="container">
-        <div class="row">
-            <div class="col-8 offset-2">
-                @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                    </div>
-                @endif
-            </div>
-        </div>
         <a class="navbar-brand" href="{{ url('/') }}">
             <img src="/images/logo-1.png" style="height: 39px;" alt="Melpit">
         </a>
@@ -25,15 +16,15 @@
                             <select class="custom-select" name="category">
                                 <option value="">全て</option>
                                 @foreach ($categories as $category)
-                                    <option value="primary:{{$category->id}}" class="font-weight-bold">{{$category->name}}</option>
+                                    <option value="primary:{{$category->id}}" class="font-weight-bold" {{ $defaults['category'] == "primary:" . $category->id ? 'selected' : ''}}>{{$category->name}}</option>
                                     @foreach ($category->secondaryCategories as $secondary)
-                                        <option value="secondary:{{$secondary->id}}">{{$secondary->name}}</option>
+                                        <option value="secondary:{{$secondary->id}}" {{ $defaults['category'] == "secondary:" . $secondary->id ? 'selected' : ''}}>{{$secondary->name}}</option>
                                     @endforeach
                                 @endforeach
                             </select>
                         </div>
                         <!-- ./input-group-prepend -->
-                        <input type="text" name="keyword" class="form-control" aria-label="Text input with dropdown button" placeholder="キーワード検索">
+                        <input type="text" name="keyword" class="form-control" value="{{$defaults['keyword']}}" aria-label="Text input with dropdown button" placeholder="キーワード検索">
                         <div class="input-group-append">
                             <button type="submit" class="btn btn-outline-dark">
                                 <i class="fas fa-search"></i>
