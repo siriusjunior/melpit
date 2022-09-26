@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+  <script src="https://js.pay.jp/v2/pay.js"></script>
   <div class="container">
     <div class="row">
       <div class="col-8 offset-2 bg-white">
@@ -59,4 +60,14 @@
     <!-- ./row -->
   </div>
   <!-- ./container -->
+  <script>
+    var payjp = Payjp('{{config("payjp.public_key")}}')
+    var elements = payjp.elements()
+    var numberElement = elements.create('cardNumber')
+    var expiryElement = elements.create('cardExpiry')
+    var cvcElement = elements.create('cardCvc')
+    numberElement.mount('#number-form')
+    expiryElement.mount('#expiry-form')
+    cvcElement.mount('#cvc-form')
+  </script>
 @endsection
