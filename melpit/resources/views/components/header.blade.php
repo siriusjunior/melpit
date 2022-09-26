@@ -31,6 +31,9 @@
                             </button>
                         </div>
                         <!-- ./input-group-append -->
+                        <!-- @if ($defaults['keyword'])
+                            <span>{{$defaults['keyword']}}の検索結果</span>
+                        @endif -->
                     </div>
                     <!-- ./input-group -->
                 </form>
