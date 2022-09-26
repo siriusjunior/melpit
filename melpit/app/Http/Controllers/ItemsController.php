@@ -55,4 +55,10 @@ class ItemsController extends Controller
         return view('items.item_detail')
             ->with('item', $item);
     }
+
+    public function showBuyItemForm(Item $item)
+    {
+        return view('items.item_buy_form')
+            ->with('item', $item);
+    }
 }

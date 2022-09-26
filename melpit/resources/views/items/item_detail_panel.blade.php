@@ -1,3 +1,4 @@
+<!-- itemオブジェクト概念の高い凝集度で完結 -->
 <div class="font-weight-bold text-center pb-3 pt-3" style="font-size: 24px">{{$item->name}}</div>
 
 <div class="row">
