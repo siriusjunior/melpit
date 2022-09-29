@@ -66,6 +66,9 @@
                             <a class="dropdown-item" href="{{ route('mypage.sold-items') }}">
                                 <i class="fas fa-store-alt text-left" style="width: 30px"></i>出品した商品
                             </a>
+                            <a class="dropdown-item" href="{{ route('mypage.bought-items') }}">
+                                <i class="fas fa-shopping-bag text-left" style="width: 30px"></i>購入した商品
+                            </a>
                             <a class="dropdown-item" href="{{ route('mypage.edit-profile') }}">
                                 <i class="far fa-address-card text-left" style="width: 30px"></i>プロフィール編集
                             </a>
