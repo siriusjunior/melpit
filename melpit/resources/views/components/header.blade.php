@@ -60,6 +60,22 @@
 
                         {{-- ドロップダウンメニュー --}}
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-item-text">
+                                <div class="row no-gutters">
+                                <div class="col">売上金</div>
+                                    <div class="col-auto">
+                                        <i class="fas fa-yen-sign"></i>
+                                        <span class="ml-1">{{number_format($user->sales)}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-item-text">
+                                <div class="row no-gutters">
+                                    <div class="col">出品数</div>
+                                    <div class="col-auto">{{number_format($user->soldItems->count())}} 個</div>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{ route('sell') }}">
                                 <i class="fas fa-camera text-left" style="width: 30px"></i>商品を出品する
                             </a>
